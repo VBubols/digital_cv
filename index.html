@@ -1,166 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Currículo Vitor Razia Bubols</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
-        <h1>Vitor Razia Bubols</h1>
-    </div>
+    <main class="pagina">
 
-    <div>
-        <p>+55 51 995449949</p>
-        <p>vitorbubols@gmail.com</p>
-        <p><a href="https://www.linkedin.com/in/vitor-bubols">Linkedin</a></p>
-        <p><a href="https://github.com/VBubols">GitHub</a></p>
-        <p>São José SC</p>
-    </div>
+        <header class="cabecalho">
+            <div>
+                <h1 class="nome">Vitor Razia Bubols</h1>
+                <p class="cargo">Desenvolvedor de Software · São José, SC</p>
+            </div>
 
-    <div>
-        <h2>RESUMO PROFISSIONAL</h2>
-        <hr>
-        <p>Desenvolvedor com experiência em manutenção de aplicações web (Python, React, MongoDB) e suporte ao
-            ciclo de desenvolvimento de produtos de tecnologia. Atuei na Intelbras mantendo ferramentas internas de
-            automação e testes, trabalhando com APIs REST e metodologias ágeis. Formado em Análise e Desenvolvimento
-            de Sistemas pela La Salle. Em formação tecnica em Desenvolvimento de Sistemas pelo SENAI.</p>
-    </div>
+            <ul class="contato">
+                <li><a href="tel:+5551995449949">+55 51 99544-9949</a></li>
+                <li><a href="mailto:vitorbubols@gmail.com">vitorbubols@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/vitor-bubols" target="_blank" rel="noopener">linkedin.com/in/vitor-bubols</a></li>
+                <li><a href="https://github.com/VBubols" target="_blank" rel="noopener">github.com/VBubols</a></li>
+            </ul>
+        </header>
 
-    <div>
-        <h2>EXPERIÊNCIA PROFISSIONAL</h2>
-        <hr>
+        <section class="bloco">
+            <h2 class="rotulo">Resumo Profissional</h2>
+            <div>
+                <p class="resumo">
+                    Desenvolvedor com experiência em manutenção de aplicações web (Python, React, MongoDB) e suporte ao ciclo de desenvolvimento de produtos de tecnologia. Atuei na Intelbras mantendo ferramentas internas de automação e testes, trabalhando com APIs REST e
+                    metodologias ágeis. Formado em Análise e Desenvolvimento de Sistemas pela La Salle e em formação técnica em Desenvolvimento de Sistemas pelo SENAI.
+                </p>
+            </div>
+        </section>
 
-        <div>
-            <p>INTELBRAS | Assistente de Desenvolvimento de Produtos</p>
-            <p>São Jose, SC | Jan 2024 - Out 2025</p>
+        <section class="bloco">
+            <h2 class="rotulo">Experiência</h2>
 
-            <ul>
-                <li>
-                    Mantive e corrigi aplicações internas de automação de testes com backend em Python, frontend em React
-                    e banco de dados MongoDB, reduzindo o tempo de diagnostico de falhas nas jigas de teste.
+            <ul class="lista-itens">
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Assistente de Desenvolvimento de Produtos <span class="empresa">·
+                                Intelbras</span></p>
+                        <p class="periodo">Jan 2024 - Out 2025</p>
+                    </div>
+                    <p class="local">São José, SC</p>
+                    <ul class="atividades">
+                        <li>Mantive e corrigi aplicações internas de automação de testes com backend em Python, frontend em React e banco de dados MongoDB, reduzindo o tempo de diagnóstico de falhas nas jigas de teste.
+                        </li>
+                        <li>Integrei serviços via APIs REST e webhooks para comunicação entre sistemas de validação de produtos Wi-Fi.</li>
+                        <li>Executei testes funcionais e de desempenho em produtos de rede (conectividade, estabilidade de sinal) e realizei testes de campo em diferentes cenários de uso.</li>
+                        <li>Apoiei o ciclo de desenvolvimento em metodologia ágil (sprints), colaborando com engenharia, QA e gestão de produto.</li>
+                        <li>Elaborei e mantive documentação técnica de projetos e gerenciei dados de produto nos sistemas SAP, ARIBA e SE Suite.</li>
+                    </ul>
                 </li>
-                <li>
-                    Integrei serviços via APIs REST e webhooks para comunicação entre sistemas de validação de produtos
-                    Wi-Fi.
+
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Estagiário de Tecnologia <span class="empresa">· Intelbras</span></p>
+                        <p class="periodo">Jun 2023 - Dez 2023</p>
+                    </div>
+                    <p class="local">São José, SC</p>
+                    <ul class="atividades">
+                        <li>Suporte ao controle de testes, gestão de estoque de componentes e documentação técnica da área de desenvolvimento de produtos.</li>
+                        <li>Cadastro e atualização de itens e estruturas em sistemas corporativos.</li>
+                    </ul>
                 </li>
-                <li>
-                    Executei testes funcionais e de desempenho em produtos de rede (conectividade, estabilidade de sinal) e
-                    realizei testes de campo em diferentes cenários de uso.
+
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Estagiário de NOC <span class="empresa">· ALIX Tecnologia</span></p>
+                        <p class="periodo">Set 2022 - Abr 2023</p>
+                    </div>
+                    <p class="local">São José, SC</p>
+                    <ul class="atividades">
+                        <li>Monitoramento contínuo da infraestrutura de TI e redes, garantindo disponibilidade e desempenho dos serviços.</li>
+                        <li>Identificação, análise e tratamento de incidentes, com abertura, acompanhamento e escalonamento de chamados conforme criticidade.</li>
+                        <li>Suporte técnico remoto a usuários e clientes, com ferramentas de acesso remoto e comunicação corporativa.
+                        </li>
+                        <li>Diagnóstico e resolução de problemas em estações de trabalho e sistemas operacionais.</li>
+                        <li>Interação com equipes técnicas para investigação de falhas em ambientes produtivos.</li>
+                    </ul>
                 </li>
-                <li>
-                    Apoiei o ciclo de desenvolvimento em metodologia ágil (sprints), colaborando com engenharia, QA e
-                    gestão de produto.
-                </li>
-                <li>
-                    Elaborei e mantive documentação tecnica de projetos e gerenciei dados de produto nos sistemas SAP,
-                    ARIBA e SE Suite.
+
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Técnico Freelancer <span class="empresa">· Autônomo</span></p>
+                        <p class="periodo">Ago 2020 - Atual</p>
+                    </div>
+                    <p class="local">Porto Alegre, RS</p>
+                    <ul class="atividades">
+                        <li>Diagnóstico e reparo de computadores, notebooks e celulares, com atendimento direto a clientes.
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </div>
-        
-        <div>
-            <p>INTELBRAS | Estagiário Tecnologia</p>
-            <p>São Jose, SC | Jun 2023 - Dez 2023</p>
+        </section>
 
-            <ul>
-                <li>
-                    Suporte ao controle de testes, gestão de estoque de componentes e documentação tecnica da área de
-                    desenvolvimento de produtos.
-                </li>
-                <li>
-                    Cadastro e atualização de itens e estruturas em sistemas corporativos.
-                </li>
-            </ul>
-        </div>
+        <section class="bloco">
+            <h2 class="rotulo">Projetos</h2>
 
-        <div>
-            <p>ALIX Tecnologia | Estagiário de NOC (Network Operations Center)</p>
-            <p>São Jose, SC | Set 2022 - Abr 2023</p>
+            <ul class="lista-itens">
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Dashboard de Sensores IoT</p>
+                        <p class="periodo">2026</p>
+                    </div>
+                    <p>Pipeline completo de ingestão, persistência e visualização de dados IoT recebidos via MQTT. O projeto consome uplinks de dispositivos LoRaWAN (formato ChirpStack v4) publicados num broker MQTT, persiste as leituras num banco PostgreSQL,
+                        expõe os dados via uma API em Django REST Framework e os visualiza num dashboard em Next.js 15 com React Query.
+                    </p>
+                    <p class="stack">STACK: Django, DRF, MQTT, Next.js 15, React Query, Docker | <a href="https://github.com/VBubols/dashboard_sensores">Repositório</a></p>
+                </li>
 
-            <ul>
-                <li>
-                    Atuação no monitoramento contínuo da infraestrutura de TI e redes, garantindo a disponibilidade e desempenho
-                    dos serviços.
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">ADAPTA — Plataforma de Aprendizagem Adaptativa com IA</p>
+                        <p class="periodo">2026</p>
+                    </div>
+                    <p>Plataforma web em que a inteligência artificial atua como avaliadora e orientadora pedagógica: o aluno informa um tema, a IA gera uma trilha de aprendizagem completa, aplica uma avaliação diagnóstica, classifica o nível do estudante
+                        e monta um plano de estudo personalizado.</p>
+                    <p class="stack">STACK: React, Node.js, Express, JavaScript, PostgreSQL, Google Gemini | <a href="https://github.com/VBubols/adapta">repositório</a></p>
                 </li>
-                <li>
-                    Identificação, análise e tratamento de incidentes, com abertura, acompanhamento e escalonamento de
-                    chamados conforme criticidade.
-                </li>
-                <li>
-                    Suporte técnico remoto a usuários e clientes, utilizando ferramentas de acesso remoto e comunicação
-                    corporativa.
-                </li>
-                <li>
-                    Diagnóstico e resolução de problemas em estações de trabalho e sistemas operacionais.
-                </li>
-                <li>
-                    Interação com equipes técnicas para investigação e resolução de falhas em ambientes produtivos.
+
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Conteúdos Tecnológicos para Escola Municipal</p>
+                        <p class="periodo">2023</p>
+                    </div>
+                    <p>Criei vídeos tutoriais e guias de uso do Google Classroom e Drive para professores e alunos, sendo utilizados pela instituição durante todo período que realizaram aula assíncronas. Eu e meu grupo fomos convidados a falar do curso no
+                        Simpósio das Profissões, que a escola realizou no ano seguinte.</p>
                 </li>
             </ul>
-        </div>
+        </section>
 
-        <div>
-            <p>Autônomo | Técnico Freelancer</p>
-            <p>Porto Alegre, RS | Ago 2020 - Atualmente</p>
+        <section class="bloco">
+            <h2 class="rotulo">Formação Acadêmica</h2>
 
-            <ul>
-                <li>
-                    Diagnostico e reparo de computadores, notebooks e celulares, com atendimento direto a clientes.
+            <ul class="lista-itens">
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Técnico em Desenvolvimento de Sistemas <span class="empresa">· SENAI</span>
+                        </p>
+                        <p class="periodo">Mar 2025 - Em andamento</p>
+                    </div>
+                    <p class="local">São José, SC</p>
+                </li>
+
+                <li class="item">
+                    <div class="item-topo">
+                        <p class="funcao">Tecnólogo em Análise e Desenvolvimento de Sistemas <span class="empresa">·
+                                Universidade La Salle</span></p>
+                        <p class="periodo">Ago 2021 - Dez 2023</p>
+                    </div>
+                    <p class="local">Porto Alegre, RS</p>
                 </li>
             </ul>
-        </div>
+        </section>
 
-    </div>
+        <section class="bloco">
+            <h2 class="rotulo">Habilidades</h2>
 
-    <div>
-        <h2>PROJETOS</h2>
-        <hr>
-        <div>
-            <p>Dahsboard Sensores</p>
-        </div>
+            <dl class="habilidades">
+                <div class="grupo">
+                    <dt>Linguagens e frameworks</dt>
+                    <dd>JavaScript, TypeScript, Next.js, React, Node.js, Python, Django, HTML5, CSS3</dd>
+                </div>
+                <div class="grupo">
+                    <dt>Dados e APIs</dt>
+                    <dd>MongoDB, SQL, APIs REST, DRF, Webhooks, Postman, Insomnia</dd>
+                </div>
+                <div class="grupo">
+                    <dt>Ferramentas e infra</dt>
+                    <dd>Git, GitHub, GitLab, Docker, Linux, Redes e Wi-Fi, Testes funcionais, Documentação técnica</dd>
+                </div>
+                <div class="grupo">
+                    <dt>Sistemas corporativos</dt>
+                    <dd>SAP, TOTVS, ARIBA, SE Suite, Redmine, Klassmatt, 4MDG</dd>
+                </div>
+                <div class="grupo">
+                    <dt>Práticas</dt>
+                    <dd>Metodologias ágeis (Scrum e sprints), comunicação técnica, trabalho em equipe, atenção a detalhes
+                    </dd>
+                </div>
+            </dl>
+        </section>
 
-        <div>
-            <p>ADAPTA</p>
-        </div>
+        <section class="bloco">
+            <h2 class="rotulo">Idiomas</h2>
+            <ul class="idiomas">
+                <li class="idioma">Português · Nativo</li>
+                <li class="idioma">Inglês · Avançado</li>
+            </ul>
+        </section>
 
-        <div>
-            <p>Conteúdos Tecnológicos para Escola Municipal</p>
-        </div>
-    </div>
-
-    <div>
-        <h2>FORMAÇÃO ACADÊMICA</h2>
-        <hr>
-
-        <div>
-            <p>Técnico em Desenvolvimento de Sistemas</p>
-            <p>SENAI | São Jose, SC | Mar 2025 - Em andamento</p>
-        </div>
-
-        <div>
-            <p>Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
-            <p>Universidade La Salle | Porto Alegre, RS | Ago 2021 - Dez 2023</p>
-        </div>
-    </div>
-
-    <div>
-        <h2>HABILIDADES</h2>
-        <hr>
-
-        <p>Linguagens e Frameworks: JavaScript, Typescript, NextJS, Python, Django, Docker, React, Node.js, HTML5, CSS3</p>
-        <p>Banco de Dados e APIs: MongoDB, SQL, APIs REST, DRF, Webhooks, Postman, Insomnia</p>
-        <p>Ferramentas e Infraestrutura: Git, GitHub, GitLab, Linux, Redes, Wi-Fi, Testes Funcionais, Documentação Tecnica</p>
-        <p>Sistemas Corporativos: SAP, TOTVS, ARIBA, SE Suite, Redmine, Klassmatt, 4MDG</p>
-        <p>Soft Skills: Trabalho em equipe, Metodologia Ágil (Scrum/Sprints), Comunicação tecnica, Atenção a detalhes</p>
-    </div>
-
-    <div>
-        <h2>IDIOMAS</h2>
-        <hr>
-
-        <p>Português: Nativo | Inglês: Avançado</p>
-    </div>
+    </main>
 </body>
+
 </html>
