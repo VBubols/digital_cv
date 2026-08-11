@@ -1,358 +1,510 @@
-  :root {
-     --tinta: #16191d;
-     --tinta-suave: #545c66;
-     --papel: #ffffff;
-     --fundo: #eef0f2;
-     --linha: #dfe3e8;
-     --sinal: #0e6f63;
-     --sinal-claro: #e9f2f0;
-     --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
-     --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Arial, sans-serif;
-     --mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
-     --rail: 150px;
-     --gap: 32px;
- }
- 
- *,
- *::before,
- *::after {
-     box-sizing: border-box;
- }
- 
- html {
-     -webkit-text-size-adjust: 100%;
- }
- 
- body {
-     margin: 0;
-     padding: 40px 20px;
-     background: var(--fundo);
-     color: var(--tinta);
-     font-family: var(--serif);
-     font-size: 15px;
-     line-height: 1.55;
-     font-feature-settings: "kern" 1, "liga" 1;
- }
- 
- .pagina {
-     max-width: 830px;
-     margin: 0 auto;
-     padding: 56px 60px 64px;
-     background: var(--papel);
-     box-shadow: 0 1px 3px rgba(22, 25, 29, .08), 0 18px 40px rgba(22, 25, 29, .10);
- }
- 
- a {
-     color: inherit;
-     text-decoration: none;
-     border-bottom: 1px solid var(--linha);
-     transition: border-color .15s ease, color .15s ease;
- }
- 
- a:hover,
- a:focus-visible {
-     color: var(--sinal);
-     border-bottom-color: var(--sinal);
- }
- 
- a:focus-visible {
-     outline: 2px solid var(--sinal);
-     outline-offset: 3px;
-     border-radius: 2px;
- }
- 
- ul {
-     margin: 0;
-     padding: 0;
-     list-style: none;
- }
- 
- p {
-     margin: 0;
- }
- 
- .cabecalho {
-     display: flex;
-     flex-wrap: wrap;
-     align-items: flex-end;
-     justify-content: space-between;
-     gap: 24px;
-     padding-bottom: 22px;
-     border-bottom: 2px solid var(--tinta);
- }
- 
- .nome {
-     margin: 0;
-     font-family: var(--sans);
-     font-size: 41px;
-     font-weight: 600;
-     letter-spacing: -0.025em;
-     line-height: 1.05;
- }
- 
- .cargo {
-     margin-top: 10px;
-     font-family: var(--mono);
-     font-size: 12px;
-     letter-spacing: .06em;
-     text-transform: uppercase;
-     color: var(--sinal);
- }
- 
- .contato {
-     font-family: var(--mono);
-     font-size: 12.5px;
-     line-height: 1.85;
-     text-align: right;
-     color: var(--tinta-suave);
- }
- 
- .contato a {
-     color: var(--tinta);
-     border-bottom-color: transparent;
- }
- 
- .contato a:hover,
- .contato a:focus-visible {
-     color: var(--sinal);
-     border-bottom-color: var(--sinal);
- }
- 
- .bloco {
-     display: grid;
-     grid-template-columns: var(--rail) 1fr;
-     gap: var(--gap);
-     padding: 30px 0;
-     border-bottom: 1px solid var(--linha);
- }
- 
- .bloco:last-of-type {
-     border-bottom: 0;
-     padding-bottom: 4px;
- }
- 
- .rotulo {
-     margin: 0;
-     font-family: var(--mono);
-     font-size: 11.5px;
-     font-weight: 500;
-     letter-spacing: .1em;
-     text-transform: uppercase;
-     color: var(--sinal);
-     padding-top: 3px;
- }
- 
- .resumo {
-     font-size: 15.5px;
-     line-height: 1.65;
- }
- 
- .lista-itens {
-     display: flex;
-     flex-direction: column;
-     gap: 26px;
- }
- 
- .item {
-     position: relative;
-     padding-left: 20px;
-     border-left: 1px solid var(--linha);
- }
- 
- .item::before {
-     content: "";
-     position: absolute;
-     left: -3px;
-     top: 8px;
-     width: 5px;
-     height: 5px;
-     background: var(--sinal);
- }
- 
- .item-topo {
-     display: flex;
-     flex-wrap: wrap;
-     align-items: baseline;
-     justify-content: space-between;
-     gap: 4px 18px;
- }
- 
- .funcao {
-     font-family: var(--sans);
-     font-size: 16px;
-     font-weight: 600;
-     letter-spacing: -0.01em;
- }
- 
- .empresa {
-     font-weight: 400;
-     color: var(--tinta-suave);
- }
- 
- .periodo {
-     font-family: var(--mono);
-     font-size: 12px;
-     color: var(--tinta-suave);
-     white-space: nowrap;
- }
- 
- .local {
-     margin-top: 2px;
-     font-family: var(--mono);
-     font-size: 11.5px;
-     letter-spacing: .04em;
-     text-transform: uppercase;
-     color: var(--tinta-suave);
- }
- 
- .atividades {
-     margin-top: 12px;
-     display: flex;
-     flex-direction: column;
-     gap: 7px;
- }
- 
- .atividades li {
-     position: relative;
-     padding-left: 16px;
- }
- 
- .atividades li::before {
-     content: "";
-     position: absolute;
-     left: 0;
-     top: .68em;
-     width: 7px;
-     height: 1px;
-     background: var(--sinal);
- }
- 
- .stack {
-     margin-top: 8px;
-     font-family: var(--mono);
-     font-size: 12px;
-     color: var(--sinal);
- }
- 
- .preencher {
-     color: var(--tinta-suave);
-     border-bottom: 1px dashed var(--tinta-suave);
-     font-style: italic;
- }
- 
- .habilidades {
-     display: flex;
-     flex-direction: column;
-     gap: 14px;
- }
- 
- .grupo {
-     display: grid;
-     grid-template-columns: 180px 1fr;
-     gap: 16px;
-     align-items: baseline;
- }
- 
- .grupo dt {
-     font-family: var(--mono);
-     font-size: 11.5px;
-     letter-spacing: .04em;
-     text-transform: uppercase;
-     color: var(--tinta-suave);
- }
- 
- .grupo dd {
-     margin: 0;
-     font-size: 14.5px;
- }
- 
- .idiomas {
-     display: flex;
-     flex-wrap: wrap;
-     gap: 10px;
- }
- 
- .idioma {
-     font-family: var(--mono);
-     font-size: 12.5px;
-     padding: 4px 11px;
-     background: var(--sinal-claro);
-     color: var(--sinal);
- }
- 
- @media (max-width: 720px) {
-     body {
-         padding: 0;
-     }
-     .pagina {
-         padding: 36px 24px 48px;
-         box-shadow: none;
-     }
-     .nome {
-         font-size: 32px;
-     }
-     .cabecalho {
-         align-items: flex-start;
-     }
-     .contato {
-         text-align: left;
-     }
-     .bloco {
-         grid-template-columns: 1fr;
-         gap: 14px;
-         padding: 24px 0;
-     }
-     .grupo {
-         grid-template-columns: 1fr;
-         gap: 3px;
-     }
- }
- 
- @media (prefers-reduced-motion: reduce) {
-     * {
-         transition: none !important;
-     }
- }
- 
- @page {
-     size: A4;
-     margin: 13mm 14mm;
- }
- 
- @media print {
-     body {
-         padding: 0;
-         background: #fff;
-         font-size: 10.2pt;
-         line-height: 1.42;
-     }
-     .pagina {
-         max-width: none;
-         padding: 0;
-         box-shadow: none;
-     }
-      :root {
-         --rail: 120px;
-         --gap: 22px;
-     }
-     .nome {
-         font-size: 27pt;
-     }
-     .bloco {
-         padding: 16px 0;
-         break-inside: avoid;
-     }
-     .item,
-     .grupo {
-         break-inside: avoid;
-     }
-     a {
-         border-bottom: 0;
-     }
-     .idioma,
-     .item::before,
-     .atividades li::before {
-         -webkit-print-color-adjust: exact;
-         print-color-adjust: exact;
-     }
- }
+:root {
+    --tinta: #16191d;
+    --tinta-suave: #545c66;
+    --papel: #ffffff;
+    --fundo: #eef0f2;
+    --linha: #dfe3e8;
+    --sinal: #0e6f63;
+    --sinal-claro: #e9f2f0;
+    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+    --rail: 150px;
+    --gap: 20px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background: var(--fundo);
+    color: var(--tinta);
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    /* "liga" 1 removido de proposito. A ligadura fi vira um glifo unico
+       que alguns geradores de PDF exportam sem mapeamento reverso pro
+       Unicode, e "Identificacao" sai quebrada na extracao de texto.
+       font-feature-settings tem precedencia sobre font-variant-ligatures,
+       entao os dois precisam concordar. */
+    font-feature-settings: "kern" 1;
+    font-variant-ligatures: none;
+}
+
+.pagina {
+    max-width: 830px;
+    margin: 0 auto;
+    padding: 56px 60px 64px;
+    background: var(--papel);
+    box-shadow: 0 1px 3px rgba(22, 25, 29, .08), 0 18px 40px rgba(22, 25, 29, .10);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--linha);
+    transition: border-color .15s ease, color .15s ease;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--sinal);
+    border-bottom-color: var(--sinal);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--sinal);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
+.cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--tinta);
+}
+
+.nome {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 41px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+}
+
+.cargo {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--sinal);
+}
+
+.contato {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.85;
+    text-align: right;
+    color: var(--tinta-suave);
+}
+
+.contato a {
+    color: var(--tinta);
+    border-bottom-color: transparent;
+}
+
+.contato a:hover,
+.contato a:focus-visible {
+    color: var(--sinal);
+    border-bottom-color: var(--sinal);
+}
+
+.bloco {
+    display: grid;
+    grid-template-columns: var(--rail) 1fr;
+    gap: var(--gap);
+    padding: 30px 0;
+    border-bottom: 1px solid var(--linha);
+}
+
+.bloco:last-of-type {
+    border-bottom: 0;
+    padding-bottom: 4px;
+}
+
+.rotulo {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--sinal);
+    padding-top: 3px;
+}
+
+.resumo {
+    font-size: 15.5px;
+    line-height: 1.65;
+}
+
+.lista-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.item {
+    position: relative;
+    padding-left: 20px;
+    border-left: 1px solid var(--linha);
+}
+
+.item::before {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    background: var(--sinal);
+}
+
+.item-topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 18px;
+}
+
+.funcao {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.empresa {
+    font-weight: 400;
+    color: var(--tinta-suave);
+}
+
+.periodo {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--tinta-suave);
+    white-space: nowrap;
+}
+
+.local {
+    margin-top: 2px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+}
+
+.atividades {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.atividades li {
+    position: relative;
+    padding-left: 16px;
+}
+
+.atividades li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .68em;
+    width: 7px;
+    height: 1px;
+    background: var(--sinal);
+}
+
+.stack {
+    margin-top: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--sinal);
+}
+
+.preencher {
+    color: var(--tinta-suave);
+    border-bottom: 1px dashed var(--tinta-suave);
+    font-style: italic;
+}
+
+.habilidades {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.grupo {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    align-items: baseline;
+}
+
+.grupo dt {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+}
+
+.grupo dd {
+    margin: 0;
+    font-size: 14.5px;
+}
+
+.idiomas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.idioma {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    padding: 4px 11px;
+    background: var(--sinal-claro);
+    color: var(--sinal);
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 0;
+    }
+
+    .pagina {
+        padding: 36px 24px 48px;
+        box-shadow: none;
+    }
+
+    .nome {
+        font-size: 32px;
+    }
+
+    .cabecalho {
+        align-items: flex-start;
+    }
+
+    .contato {
+        text-align: left;
+    }
+
+    .bloco {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 24px 0;
+    }
+
+    .grupo {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* ============================================================
+        IMPRESSAO / PDF (Ctrl + P > Salvar como PDF)
+
+        Gere pelo Chrome ou Edge. O Firefox usa o cairo como backend,
+        que nao consegue embutir a IBM Plex Sans 600 e desenha os
+        titulos como contorno vetorial em vez de texto: o nome e os
+        cargos somem da extracao.
+
+        Este bloco existe pra que a ordem dos operadores de texto no
+        PDF seja a mesma ordem do documento. Leitores de curriculo
+        costumam ler o stream cru, sem reordenar por posicao.
+        ============================================================ */
+
+@page {
+    size: A4;
+    margin: 10mm 12mm;
+}
+
+@media print {
+    :root {
+        --rail: 118px;
+        --gap: 18px;
+    }
+
+    body {
+        padding: 0;
+        background: #fff;
+        font-size: 10pt;
+        line-height: 1.3;
+    }
+
+    .pagina {
+        max-width: none;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    /* --- Layout: trilho sem float e sem tabela -------------------
+            Float nao serve: na ordem de pintura do CSS, todos os
+            floats de uma pagina saem antes de qualquer texto em fluxo
+            normal, entao os rotulos se amontoavam no topo do stream.
+            Tabela tambem nao: o Chrome ignora break-inside em caixas
+            display: table.
+
+            Solucao: fluxo de bloco puro. O .bloco reserva a coluna da
+            esquerda com padding, e o .rotulo e puxado pra dentro dela
+            com margin negativa. height: 0 faz o rotulo nao ocupar
+            espaco vertical, entao o conteudo comeca na mesma linha. */
+    .bloco {
+        display: block;
+        padding: 14px 0;
+        padding-left: calc(var(--rail) + var(--gap));
+    }
+
+    /* Bloco empurrado pra pagina seguinte deixaria o rotulo orfao no
+       rodape da anterior, ja que ele tem altura zero. Experiencia e
+       maior que uma pagina e precisa poder se dividir: por isso a
+       classe bloco-longo no HTML. */
+    .bloco:not(.bloco-longo) {
+        break-inside: avoid;
+    }
+
+    .rotulo {
+        margin-left: calc(-1 * (var(--rail) + var(--gap)));
+        width: var(--rail);
+        height: 0;
+        overflow: visible;
+        padding-top: 2px;
+    }
+
+    /* --- Marcadores sem position --------------------------------
+            Elementos posicionados sao pintados na etapa 8 do CSS,
+            depois de todo o conteudo em fluxo normal da pagina. Com
+            .item em position: relative, o texto de experiencias,
+            projetos e formacao ia parar no fim do stream e os rotulos
+            de secao ficavam descolados do proprio conteudo.
+
+            Os quadradinhos e tracinhos viram background, que pinta
+            junto com a caixa e nao exige position. Unico efeito
+            visual: o quadrado do .item sai de left: -3px pra left: 0,
+            porque background nao pinta fora da caixa. */
+    .item,
+    .atividades li {
+        position: static;
+    }
+
+    .item::before,
+    .atividades li::before {
+        display: none;
+    }
+
+    .item {
+        background-image: linear-gradient(var(--sinal), var(--sinal));
+        background-size: 5px 5px;
+        background-position: 0 8px;
+        background-repeat: no-repeat;
+    }
+
+    .atividades li {
+        background-image: linear-gradient(var(--sinal), var(--sinal));
+        background-size: 7px 1px;
+        background-position: 0 .68em;
+        background-repeat: no-repeat;
+    }
+
+    /* --- Flex e grid viram fluxo de blocos ----------------------- */
+    .lista-itens,
+    .atividades,
+    .habilidades {
+        display: block;
+    }
+
+    .lista-itens>li+li {
+        margin-top: 16px;
+    }
+
+    .atividades>li+li {
+        margin-top: 4px;
+    }
+
+    .habilidades>.grupo+.grupo {
+        margin-top: 9px;
+    }
+
+    .atividades {
+        margin-top: 8px;
+    }
+
+    /* Tags de idioma lado a lado sem depender de flex. */
+    .idioma {
+        display: inline-block;
+        margin: 0 6px 4px 0;
+    }
+
+    /* --- Quebra de pagina ---------------------------------------
+            Protege apenas unidades menores que uma pagina. */
+    .cabecalho,
+    .item,
+    .item-topo,
+    .grupo {
+        break-inside: avoid;
+    }
+
+    .cabecalho {
+        break-after: avoid;
+    }
+
+    p,
+    li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* --- Ajustes tipograficos ------------------------------------ */
+    .nome {
+        font-size: 28pt;
+    }
+
+    .cargo {
+        margin-top: 7px;
+    }
+
+    /* Impede "Universidade La / Salle" quebrar no meio. Nome de
+       instituicao cortado em duas linhas vira duas strings separadas
+       no PDF e o match por palavra-chave falha. */
+    .empresa {
+        white-space: nowrap;
+    }
+
+    a {
+        border-bottom: 0;
+    }
+
+    /* --- Preserva os detalhes coloridos --------------------------
+            Agora nos proprios elementos, nao mais nos ::before. */
+    .idioma,
+    .item,
+    .atividades li {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
