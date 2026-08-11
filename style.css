@@ -10,7 +10,7 @@
     --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Arial, sans-serif;
     --mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
     --rail: 150px;
-    --gap: 32px;
+    --gap: 20px;
 }
 
 *,
@@ -31,7 +31,13 @@ body {
     font-family: var(--serif);
     font-size: 15px;
     line-height: 1.55;
-    font-feature-settings: "kern" 1, "liga" 1;
+    /* "liga" 1 removido de proposito. A ligadura fi vira um glifo unico
+       que alguns geradores de PDF exportam sem mapeamento reverso pro
+       Unicode, e "Identificacao" sai quebrada na extracao de texto.
+       font-feature-settings tem precedencia sobre font-variant-ligatures,
+       entao os dois precisam concordar. */
+    font-feature-settings: "kern" 1;
+    font-variant-ligatures: none;
 }
 
 .pagina {
@@ -321,8 +327,16 @@ p {
 }
 
 /* ============================================================
-        IMPRESSÃO / PDF (Ctrl + P > Salvar como PDF)
-        Substitui integralmente o bloco @page + @media print anterior
+        IMPRESSAO / PDF (Ctrl + P > Salvar como PDF)
+
+        Gere pelo Chrome ou Edge. O Firefox usa o cairo como backend,
+        que nao consegue embutir a IBM Plex Sans 600 e desenha os
+        titulos como contorno vetorial em vez de texto: o nome e os
+        cargos somem da extracao.
+
+        Este bloco existe pra que a ordem dos operadores de texto no
+        PDF seja a mesma ordem do documento. Leitores de curriculo
+        costumam ler o stream cru, sem reordenar por posicao.
         ============================================================ */
 
 @page {
@@ -349,31 +363,75 @@ p {
         box-shadow: none;
     }
 
-    /* --- Layout: grid e flex viram fluxo de blocos ---------------
-            Containers flex e grid fragmentam mal entre páginas.
-            O trilho de rótulos é recriado com float, que quebra bem. */
+    /* --- Layout: trilho sem float e sem tabela -------------------
+            Float nao serve: na ordem de pintura do CSS, todos os
+            floats de uma pagina saem antes de qualquer texto em fluxo
+            normal, entao os rotulos se amontoavam no topo do stream.
+            Tabela tambem nao: o Chrome ignora break-inside em caixas
+            display: table.
+
+            Solucao: fluxo de bloco puro. O .bloco reserva a coluna da
+            esquerda com padding, e o .rotulo e puxado pra dentro dela
+            com margin negativa. height: 0 faz o rotulo nao ocupar
+            espaco vertical, entao o conteudo comeca na mesma linha. */
     .bloco {
         display: block;
         padding: 14px 0;
+        padding-left: calc(var(--rail) + var(--gap));
     }
 
-    .bloco::after {
-        content: "";
-        display: block;
-        clear: both;
+    /* Bloco empurrado pra pagina seguinte deixaria o rotulo orfao no
+       rodape da anterior, ja que ele tem altura zero. Experiencia e
+       maior que uma pagina e precisa poder se dividir: por isso a
+       classe bloco-longo no HTML. */
+    .bloco:not(.bloco-longo) {
+        break-inside: avoid;
     }
 
     .rotulo {
-        float: left;
+        margin-left: calc(-1 * (var(--rail) + var(--gap)));
         width: var(--rail);
+        height: 0;
+        overflow: visible;
         padding-top: 2px;
-        break-after: avoid;
     }
 
-    .bloco> :last-child {
-        margin-left: calc(var(--rail) + var(--gap));
+    /* --- Marcadores sem position --------------------------------
+            Elementos posicionados sao pintados na etapa 8 do CSS,
+            depois de todo o conteudo em fluxo normal da pagina. Com
+            .item em position: relative, o texto de experiencias,
+            projetos e formacao ia parar no fim do stream e os rotulos
+            de secao ficavam descolados do proprio conteudo.
+
+            Os quadradinhos e tracinhos viram background, que pinta
+            junto com a caixa e nao exige position. Unico efeito
+            visual: o quadrado do .item sai de left: -3px pra left: 0,
+            porque background nao pinta fora da caixa. */
+    .item,
+    .atividades li {
+        position: static;
     }
 
+    .item::before,
+    .atividades li::before {
+        display: none;
+    }
+
+    .item {
+        background-image: linear-gradient(var(--sinal), var(--sinal));
+        background-size: 5px 5px;
+        background-position: 0 8px;
+        background-repeat: no-repeat;
+    }
+
+    .atividades li {
+        background-image: linear-gradient(var(--sinal), var(--sinal));
+        background-size: 7px 1px;
+        background-position: 0 .68em;
+        background-repeat: no-repeat;
+    }
+
+    /* --- Flex e grid viram fluxo de blocos ----------------------- */
     .lista-itens,
     .atividades,
     .habilidades {
@@ -396,10 +454,14 @@ p {
         margin-top: 8px;
     }
 
-    /* --- Quebra de página ---------------------------------------
-            Protege apenas unidades menores que uma página.
-            O .bloco NÃO entra aqui: seções grandes precisam poder
-            se dividir, senão o layout estoura. */
+    /* Tags de idioma lado a lado sem depender de flex. */
+    .idioma {
+        display: inline-block;
+        margin: 0 6px 4px 0;
+    }
+
+    /* --- Quebra de pagina ---------------------------------------
+            Protege apenas unidades menores que uma pagina. */
     .cabecalho,
     .item,
     .item-topo,
@@ -417,7 +479,7 @@ p {
         widows: 3;
     }
 
-    /* --- Ajustes tipográficos ------------------------------------ */
+    /* --- Ajustes tipograficos ------------------------------------ */
     .nome {
         font-size: 28pt;
     }
@@ -426,14 +488,22 @@ p {
         margin-top: 7px;
     }
 
+    /* Impede "Universidade La / Salle" quebrar no meio. Nome de
+       instituicao cortado em duas linhas vira duas strings separadas
+       no PDF e o match por palavra-chave falha. */
+    .empresa {
+        white-space: nowrap;
+    }
+
     a {
         border-bottom: 0;
     }
 
-    /* --- Preserva os detalhes coloridos -------------------------- */
+    /* --- Preserva os detalhes coloridos --------------------------
+            Agora nos proprios elementos, nao mais nos ::before. */
     .idioma,
-    .item::before,
-    .atividades li::before {
+    .item,
+    .atividades li {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
